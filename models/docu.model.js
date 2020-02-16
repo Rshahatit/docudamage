@@ -6,7 +6,8 @@ const docuSchema = new Schema({
     docuname: { type: String, required: true},
     description: { type: String, required: true},
     cost: { type: Number, required: true},
-    date: { type: Date, required: true},
+    dateofaccident: { type: Date, required: true},
+
 }, {
     timestamps: true,
 });
