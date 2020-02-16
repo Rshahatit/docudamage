@@ -22,6 +22,8 @@ const docuRouter = require('./routes/docu');
 app.use('/docu', docuRouter)
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+const itemsRouter = require('./routes/items');
+app.use('/items', itemsRouter);
 
 
 app.listen(3000, () => console.log('server started'))
