@@ -8,19 +8,25 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
+    const name = req.body.name;
+    const claim = req.body.description;
+    const address = req.body.description;
+    const zipcode = Number(req.body.duration);
     const description = req.body.description;
     const cost = Number(req.body.duration);
-    const date = Date.parse(req.body.date);
+    const dateofaccident = Date.parse(req.body.date);
 
     const newDocu = new Docu({
-        username,
+        name,
+        claim,
+        address,
+        zipcode,
         description,
         cost,
-        date,
+        dateofaccident,
     });
 
-    newEDocu.save()
+    newDocu.save()
         .then(() => res.json('Document created'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -40,10 +46,13 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Docu.findById(req.params.id)
         .then(Docu => {
-            docu.username = req.body.username;
+            docu.name = req.body.name;
+            docu.claim = req.body.description;
+            docu.address = req.body.description;
+            docu.zipcode = Number(req.body.duration);
             docu.description = req.body.description;
             docu.cost = Number(req.body.duration);
-            docu.date = Date.parse(req.body.date);
+            docu.dateofaccident = Date.parse(req.body.date);
 
             docu.save()
                 .then(() => res.json('Document updated!'))

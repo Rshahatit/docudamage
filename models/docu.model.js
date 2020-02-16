@@ -3,7 +3,10 @@ const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
 const docuSchema = new Schema({
-    docuname: { type: String, required: true},
+    name: { type: String, required: true},
+    claim: { type: String, required: true},
+    address: { type: String, required: true},
+    zipcode: { type: Number, required: true},
     description: { type: String, required: true},
     cost: { type: Number, required: true},
     dateofaccident: { type: Date, required: true},
