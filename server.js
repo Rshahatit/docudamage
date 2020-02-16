@@ -17,10 +17,11 @@ const db = mongoose.connection;
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
-const imagesRouter = require('./routes/images');
-app.use('/images', imagesRouter)
+
 const docuRouter = require('./routes/docu');
 app.use('/docu', docuRouter)
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
 
 
 app.listen(3000, () => console.log('server started'))
